@@ -1,0 +1,28 @@
+$schema: 'https://moonrepo.dev'
+
+language: 'python'
+layer: 'application'
+
+tasks:
+  setup:
+    # command: 'python3 -m venv .venv && .venv/bin/pip install -r requirements.txt'
+    script: 'python3 -m venv .venv && .venv/bin/pip install -r requirements.txt'
+    inputs:
+      - 'requirements.txt'
+    outputs:
+      - '.venv'
+
+  codegen:
+    command: '.venv/bin/python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./app/proto/user.proto'
+    inputs:
+      - 'app/proto/user.proto'
+    deps:
+      - '~:setup'
+
+  dev:
+    command: '.venv/bin/python app/main.py'
+    preset: 'server'
+    env:
+      PYTHONPATH: '.'
+    deps:
+      - '~:codegen'

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc GetUser (UserRequest) returns (UserResponse);
+  // 👇 ADD THIS NEW ROUTE DEFINITION:
+  rpc GetUserByEmail (EmailRequest) returns (UserResponse);
+}
+
+// 👇 ADD THIS NEW MESSAGE SPECIFICATION:
+message EmailRequest {
+  string email = 1;
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}

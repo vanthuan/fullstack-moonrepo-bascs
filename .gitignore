@@ -1,0 +1,7 @@
+
+# moon
+.moon/cache
+.moon/docker
+.env
+.venv
+**/__pycache__/

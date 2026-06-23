@@ -1,0 +1,11 @@
+$schema: 'https://moonrepo.dev'
+
+node:
+  version: '22.21.1'
+  packageManager: 'pnpm'
+  pnpm:
+    version: 'latest'
+
+python:
+  version: '3.12.13'
+  venvName: '.venv'
