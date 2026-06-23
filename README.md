@@ -1,4 +1,4 @@
-# Fullstack Moonrepo Simple Template
+# Fullstack Moonrepo Template
 
 A polyglot monorepo managed by [moonrepo](https://moonrepo.dev), combining a Python (FastAPI + gRPC) backend with a React + Vite frontend.
 
